@@ -1,0 +1,68 @@
+<div class="jumbotron text-center">
+  <h1 class="display-3">MinnowSupport Delegation Helper</h1>
+  <p class="lead" style="font-weight: 700;">Use the form below to get a delegation URL generated for you.<br/>After the link is generated, you can click the result to open it in your browser.</p>
+  <hr class="my-4">
+  <p style="font-weight: 700;">You will need your active/owner/master to validate the delegation.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-md" href="https://steemit.com/delegation/@timcliff/tutorial-how-to-delegate-sp-to-another-user-using-the-steemconnect-tool-from-busy-org" role="button" target="_blank">Learn more</a>
+  </p>
+  <div class="container">
+	  <p>
+			<%= text_field_tag :delegateurl, nil, class: "form-control", id: "delegateurl", placeholder: "generated URL will appear here; use button below to copy to clipboard", style: "text-align: center; font-weight: 700; font-size: 16px;", disabled: true %>
+			<%= button_tag "Copy URL", class: "hidden btn btn-md btn-warning", id: "copyurl", onclick: "copyToClipboard('#delegateurl')", style: "margin-top: 10px;" %>
+			<%= button_tag "Open URL", class: "hidden btn btn-md btn-warning", id: "openurl", onclick: "openUrlInNewTab($('#delegateurl').val());", style: "margin-top: 10px;" %>
+		</p>
+	</div>
+</div>
+
+<div class="container">
+	<%= form_tag("/generate_url", method: :get, enforce_utf8: false, remote: true) do %>
+    <div class="row">
+      <div class="col-sm-6 col-lg-4">
+        <div class="form-group">
+          <label for="delegator" class="col-md-4 control-label">delegator:</label>
+          <div class="col-md-8">
+	          <%= text_field_tag :delegator, nil, class: "form-control", id: "delegator", placeholder: "@username" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="form-group">
+          <label for="delegatee" class="col-md-4 control-label">delegatee:</label>
+          <div class="col-md-8">
+	          <%= text_field_tag :delegatee, "@minnowsupport", class: "form-control", id: "delegatee", placeholder: "@minnowsupport", disabled: true %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="form-group">
+          <label for="sp" class="col-md-4 control-label">steem power:</label>
+          <div class="col-md-8">
+	          <%= text_field_tag :sp, nil, class: "form-control", id: "sp", placeholder: "100" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row text-center">
+      <div class="col-sm-12">
+	      <%= submit_tag "Submit", class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+	function copyToClipboard(element) {
+	  var $temp = $("<input>");
+	  $("body").append($temp);
+	  $temp.val($(element).val()).select();
+	  document.execCommand("copy");
+	  $temp.remove();
+	}
+
+	function openUrlInNewTab(url) {
+	  var win = window.open(url, '_blank');
+	  win.focus();
+	}
+</script>

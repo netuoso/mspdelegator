@@ -1,0 +1,2 @@
+module DelegateHelper
+end
