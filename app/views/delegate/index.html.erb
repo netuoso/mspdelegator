@@ -30,7 +30,7 @@
         <div class="form-group">
           <label for="delegatee" class="col-md-4 control-label">delegatee:</label>
           <div class="col-md-8">
-	          <%= text_field_tag :delegatee, "@minnowsupport", class: "form-control", id: "delegatee", placeholder: "@minnowsupport", disabled: true %>
+	          <%= select_tag :delegatee, options_for_select(@mspbots, "@minnowsupport"), class: "form-control", id: "delegatee", placeholder: "@minnowsupport" %>
           </div>
         </div>
       </div>

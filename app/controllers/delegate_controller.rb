@@ -1,6 +1,7 @@
 class DelegateController < ApplicationController
 
   def index
+    @mspbots = ["@centerlink", "@msp-lovebot", "@msp-creative", "@minnowsupport"]
   end
 
   def generate_url
@@ -10,7 +11,7 @@ class DelegateController < ApplicationController
       if steem_to_vests == 0
         @result = "Error getting current steem_per_mvests conversion rate. Try again later."
       else
-        @result = "https://v2.steemconnect.com/sign/delegateVestingShares?delegator=#{permitted_params[:delegator].gsub(/@/,"")}&delegatee=minnowsupport&vesting_shares=#{calculated_vests(permitted_params[:sp]).round(6)}%20VESTS"
+        @result = "https://v2.steemconnect.com/sign/delegateVestingShares?delegator=#{permitted_params[:delegator].gsub(/@/,"")}&delegatee=#{permitted_params[:delegatee].gsub(/@/,"")}&vesting_shares=#{calculated_vests(permitted_params[:sp]).round(6)}%20VESTS"
       end
     else
       @result = "Ensure you have provided delegator and sp and retry."
