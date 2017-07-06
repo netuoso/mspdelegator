@@ -14,3 +14,7 @@
 //= require jquery
 //= require jquery-tablesorter
 //= require_tree .
+
+if (("#delegators").length) {
+	$("#delegators").tablesorter();
+}
