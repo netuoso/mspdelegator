@@ -1,1 +1,2 @@
 steem_per_mvests: <%= ENV["STEEM_PER_MVESTS"] || 483.494 %>
+msp_bots: ["@centerlink", "@minnowsupport", "@msp-africa", "@msp-creative", "@msp-lovebot"]
