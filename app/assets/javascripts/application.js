@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery-tablesorter
 //= require_tree .

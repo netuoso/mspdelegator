@@ -1,0 +1,30 @@
+<div class="jumbotron text-center">
+  <h1 class="display-3">MinnowSupport<br/>Delegators:<br/><%= @delegators.count %></h1>
+</div>
+
+<div class="container">
+	<table class="table table-hover table-striped tablesorter">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Recipient</th>
+				<th>Delegator</th>
+				<th>MVests</th>
+				<th>SP</th>
+				<th>Latest Time Stamp</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @delegators.each_with_index do |delegator, index| %>
+				<tr>
+					<th scope="row"><%= index+1 %></th>
+					<td><%= delegator["Recipient"] %></td>
+					<td><%= delegator["Delegator"] %></td>
+					<td><%= delegator["MVests"] %></td>
+					<td><%= delegator["SP"] %></td>
+					<td><%= delegator["Latest Time Stamp"] %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

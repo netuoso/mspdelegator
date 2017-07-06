@@ -4,6 +4,10 @@ class DelegateController < ApplicationController
     @mspbots = ["@centerlink", "@msp-lovebot", "@msp-creative", "@minnowsupport"]
   end
 
+  def delegators
+    @delegators = Steem.delegators
+  end
+
   def generate_url
     if permitted_params[:delegator].present? && permitted_params[:sp].present?
       steem_to_vests = calculated_vests(permitted_params[:sp])
