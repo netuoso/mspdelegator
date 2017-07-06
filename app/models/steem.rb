@@ -6,12 +6,12 @@ class Steem < ActiveRecord::Base
     :password => "steemit",
   })
 
-  def self.delegators
-    self.connection.exec_query(self.canned_query)
+  def self.delegators(steem_per_vest=Settings.steem_per_mvests.to_f/1000000)
+    self.connection.exec_query(self.canned_query(steem_per_vest))
   end
 
-  def self.canned_query
-    "SELECT delegatee AS Recipient, delegator AS Delegator, CONVERT(DECIMAL(15,2),vesting_shares / 1000000) AS MVests, CONVERT(DECIMAL(15,0),ROUND(vesting_shares * 0.000483, 0)) AS SP, timestamp as 'Latest Time Stamp' FROM
+  def self.canned_query(steem_per_vest)
+    "SELECT delegatee AS Recipient, delegator AS Delegator, CONVERT(DECIMAL(15,2),vesting_shares / 1000000) AS MVests, CONVERT(DECIMAL(15,0),ROUND(vesting_shares * #{steem_per_vest}, 0)) AS SP, timestamp as 'Latest Time Stamp' FROM
     (SELECT delegator,
             delegatee,
             vesting_shares,

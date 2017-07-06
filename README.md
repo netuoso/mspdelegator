@@ -5,7 +5,6 @@
 
 - Responds to JSON at:
 	* https://mspdelegator.herokuapp.com/generate_url.json
-
-- Requires params:
-	* delegator
-	* sp
+		- params: delegator, delegatee, sp
+	* https://mspdelegator.herokuapp.com/delegators.json
+		- params: n/a

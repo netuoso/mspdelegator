@@ -53,6 +53,10 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     concurrent-ruby (1.0.5)
+    config (1.4.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.1.1)
+    deep_merge (1.1.1)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.6.1)
@@ -166,6 +170,7 @@ DEPENDENCIES
   activerecord-sqlserver-adapter
   boostrap-sass
   byebug
+  config
   jquery-rails
   jquery-tablesorter
   listen (>= 3.0.5, < 3.2)
