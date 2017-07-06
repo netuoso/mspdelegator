@@ -17,7 +17,7 @@
 			<% @delegators.each_with_index do |delegator, index| %>
 				<tr>
 					<td><%= link_to delegator["Recipient"], "https://steemit.com/@#{delegator["Recipient"]}" %></td>
-					<td><%= delegator["Delegator"] %></td>
+					<td><%= link_to delegator["Delegator"], "https://steemit.com/@#{delegator["Delegator"]}" %></td>
 					<td><%= delegator["MVests"] %></td>
 					<td><%= delegator["SP"].to_i %></td>
 					<td><%= delegator["Latest Time Stamp"] %></td>
