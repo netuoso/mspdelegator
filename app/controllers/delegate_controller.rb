@@ -5,7 +5,7 @@ class DelegateController < ApplicationController
   end
 
   def delegators
-    @delegators = SteemConnection.delegators
+    @delegators = SteemConnection.msp_delegators
   end
 
   def generate_url
