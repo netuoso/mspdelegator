@@ -2,6 +2,7 @@ class DelegateController < ApplicationController
 
   def index
     @mspbots = Settings.msp_bots
+    @steem_per_mvests = SteemConnection.steem_per_mvests
   end
 
   def delegators

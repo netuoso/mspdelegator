@@ -15,6 +15,12 @@
 	</div>
 </div>
 
+<div class="container" style="margin-bottom: 25px;">
+  <div class="row text-center" style="font-weight: 700;">
+    <h2>STEEM per MVESTS:</h2>
+    <%= button_tag "%.6f" % @steem_per_mvests, class: 'btn btn-lg btn-success', id: "steempermvests", disabled: true %>
+  </div>
+</div>
 <div class="container">
 	<%= form_tag("/generate_url", method: :get, enforce_utf8: false, remote: true) do %>
     <div class="row">
