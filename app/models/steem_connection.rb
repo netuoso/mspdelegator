@@ -1,7 +1,7 @@
 class SteemConnection < SteemApi::SqlBase
 
   def self.msp_delegators(steem_per_vest=Settings.steem_per_mvests.to_f/1000000)
-    self.connection.exec_query(self.canned_query(steem_per_vest))
+    SteemApi::Connection.connection.exec_query(self.canned_query(steem_per_vest))
   end
 
   private

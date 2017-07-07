@@ -2,7 +2,7 @@ class DelegateController < ApplicationController
 
   def index
     @mspbots = Settings.msp_bots
-    @steem_per_mvests = SteemConnection.steem_per_mvests
+    @steem_per_mvests = SteemApi::Connection.steem_per_mvests
   end
 
   def delegators
@@ -27,7 +27,7 @@ class DelegateController < ApplicationController
 
   def calculated_vests(sp)
     begin
-      (1000000 / SteemConnection.steem_per_mvests.to_f) * sp.to_f
+      (1000000 / SteemApi::Connection.steem_per_mvests.to_f) * sp.to_f
     rescue ZeroDivisionError => e
       Rails.logger.error("Error: #{e}")
       0
