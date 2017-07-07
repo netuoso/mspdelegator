@@ -8,6 +8,7 @@ class SteemApi::Comment < SteemApi::SqlBase
   def self.find_by_parent(user)
     self.where(parent_author: user)
   end
+
 end
 
 # Strcture

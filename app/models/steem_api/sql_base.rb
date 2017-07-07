@@ -13,4 +13,5 @@ class SteemApi::SqlBase < ApplicationRecord
   def tx
     SteemApi::Transaction.find_by(tx_id: self.tx_id)
   end
+
 end

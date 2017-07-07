@@ -5,6 +5,7 @@ class SteemApi::Transaction < SteemApi::SqlBase
   def block
     SteemApi::Block.find(block_num)
   end
+
 end
 
 # Structure
