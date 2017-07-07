@@ -7,7 +7,7 @@ class SteemConnection < SteemApi::SqlBase
   private
 
   def self.canned_query(steem_per_vest)
-    "SELECT delegatee AS Recipient, delegator AS Delegator, CONVERT(DECIMAL(15,2),vesting_shares / 1000000) AS MVests, CONVERT(DECIMAL(15,0),ROUND(vesting_shares * #{SteemApi::Connection.steem_per_mvests}, 0)) AS SP, timestamp as 'Latest Time Stamp' FROM
+    "SELECT delegatee AS Recipient, delegator AS Delegator, CONVERT(DECIMAL(15,2),vesting_shares / 1000000) AS MVests, CONVERT(DECIMAL(15,0),ROUND(vesting_shares * #{SteemApi::Connection.steem_per_mvests}/1000000, 0)) AS SP, timestamp as 'Latest Time Stamp' FROM
     (SELECT delegator,
             delegatee,
             vesting_shares,
