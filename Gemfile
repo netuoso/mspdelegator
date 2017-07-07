@@ -11,12 +11,9 @@ gem 'jquery-tablesorter'
 gem 'boostrap-sass'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
-gem 'nokogiri'
-gem 'rest-client'
-gem 'config'
 
-gem 'tiny_tds'
-gem 'activerecord-sqlserver-adapter'
+gem 'config'
+gem 'steem_api'
 
 group :development, :test do
   gem 'byebug'
