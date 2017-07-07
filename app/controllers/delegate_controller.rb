@@ -26,24 +26,15 @@ class DelegateController < ApplicationController
 
   def calculated_vests(sp)
     begin
-      (1000000 / steem_per_mvests.to_f) * sp.to_f
+      (1000000 / SteemConnection.steem_per_mvests.to_f) * sp.to_f
     rescue ZeroDivisionError => e
       Rails.logger.error("Error: #{e}")
       0
     end
   end
 
-  def steem_per_mvests
-    begin
-      steemd_response = RestClient::Request.execute(method: :get, url: "https://steemd.com", timeout: 3, open_timeout: 3).body
-      Nokogiri::XML.parse(steemd_response).css('.hash3').first.text.match(/^steem_per_mvests(\d*.\d*)/)[1]
-    rescue => e
-      Rails.logger.error("Error: #{e}")
-      Settings.steem_per_mvests
-    end
-  end
-
   def permitted_params
     params.permit(:delegator,:delegatee,:sp)
   end
+
 end
