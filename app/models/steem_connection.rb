@@ -1,11 +1,4 @@
-class Steem < ActiveRecord::Base
-  establish_connection({
-    :adapter  => "sqlserver",
-    :host     => "sql.steemsql.com",
-    :username => "steemit",
-    :password => "steemit",
-  })
-
+class SteemConnection < Steem::SqlBase
   def self.delegators(steem_per_vest=Settings.steem_per_mvests.to_f/1000000)
     self.connection.exec_query(self.canned_query(steem_per_vest))
   end
