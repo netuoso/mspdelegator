@@ -66,7 +66,7 @@ GEM
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.8.4)
+    i18n (0.8.5)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -144,7 +144,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
-    steem_api (1.0.0)
+    steem_api (1.1.0.pre.alpha)
       activerecord (>= 4, < 6)
       activerecord-sqlserver-adapter (>= 4, < 6)
       nokogiri (~> 1.8)
@@ -185,7 +185,7 @@ DEPENDENCIES
   rails (~> 5.1.1)
   sass-rails (~> 5.0)
   sqlite3
-  steem_api
+  steem_api (= 1.1.0.pre.alpha)
   web-console (>= 3.3.0)
 
 BUNDLED WITH

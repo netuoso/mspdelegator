@@ -13,7 +13,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 
 gem 'config'
-gem 'steem_api'
+gem 'steem_api', '= 1.1.0.pre.alpha'
 
 group :development, :test do
   gem 'byebug'
