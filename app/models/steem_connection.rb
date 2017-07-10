@@ -14,7 +14,7 @@ class SteemConnection < SteemApi::SqlBase
             timestamp,
             row_number() over (partition by delegator, delegatee ORDER BY timestamp DESC ) as rn
         FROM TxDelegateVestingShares
-        WHERE delegatee IN ('minnowsupport','msp-lovebot','msp-creativebot','centerlink','msp-africa','msp-shanebot')
+        WHERE delegatee IN ('minnowsupport','msp-lovebot','msp-creativebot','centerlink','msp-africa','msp-shanebot', 'msp-nomad')
         AND timestamp IS Not Null
     ) tt
     WHERE tt.rn = 1 AND vesting_shares <> 0
