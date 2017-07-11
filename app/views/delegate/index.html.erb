@@ -41,7 +41,7 @@
           <div class="col-md-8">
             <div class="input-group">
               <span class="input-group-addon" id="delegatee-addon">@</span>
-              <%= select_tag :delegatee, options_for_select(@mspbots, "minnowsupport"), class: "form-control", id: "delegatee", placeholder: "minnowsupport", tabindex: 2,  'aria-describedby': "delegatee-addon"%>
+              <%= select_tag :delegatee, options_for_select(Settings.msp_bots.sort, "minnowsupport"), class: "form-control", id: "delegatee", placeholder: "minnowsupport", tabindex: 2,  'aria-describedby': "delegatee-addon"%>
             </div>
           </div>
         </div>

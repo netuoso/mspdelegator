@@ -5,6 +5,7 @@ class SteemConnection < SteemApi::SqlBase
   end
 
   def self.msp_witnesses
+    SteemApi::Account.where(name: Settings.msp_witnesses)
   end
 
   private
@@ -17,7 +18,7 @@ class SteemConnection < SteemApi::SqlBase
             timestamp,
             row_number() over (partition by delegator, delegatee ORDER BY timestamp DESC ) as rn
         FROM TxDelegateVestingShares
-        WHERE delegatee IN ('minnowsupport','msp-lovebot','msp-creativebot','centerlink','msp-africa','msp-shanebot', 'msp-nomad', 'muxxybot')
+        WHERE delegatee IN ('#{Settings.msp_bots.sort.join("','")}')
         AND timestamp IS Not Null
     ) tt
     WHERE tt.rn = 1 AND vesting_shares <> 0

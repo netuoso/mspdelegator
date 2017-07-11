@@ -18,3 +18,7 @@
 if (("#delegators").length) {
 	$("#delegators").tablesorter();
 }
+
+if (("#witnesses").length) {
+	$("#witnesses").tablesorter();
+}

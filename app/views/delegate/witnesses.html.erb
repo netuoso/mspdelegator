@@ -1,0 +1,27 @@
+<div class="jumbotron text-center">
+  <h1 class="display-3">MinnowSupport<br/>Witnesses:<br/><%= @witnesses.count %></h1>
+</div>
+
+<div class="container">
+	<table id="witnesses" class="table table-hover table-striped tablesorter">
+		<thead>
+			<tr>
+				<th>Witness</th>
+				<th>Reputation</th>
+				<th>Votes Cast</th>
+				<th>Votes Received</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @witnesses.each_with_index do |witness, index| %>
+			<% witness_votes = SteemApi::Tx::AccountWitnessVote.where('account=? OR witness=?',witness.name,witness.name) %>
+				<tr>
+					<td><%= link_to witness.name, "https://steemit.com/@#{witness.name}" %></td>
+					<td><%= witness.reputation %></td>
+					<td><%= witness_votes.where(account: witness.name).count %></td>
+					<td><%= witness_votes.where(witness: witness.name).count %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

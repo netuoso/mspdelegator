@@ -1,7 +1,6 @@
 class DelegateController < ApplicationController
 
   def index
-    @mspbots = Settings.msp_bots
     @steem_per_mvests = SteemApi::Connection.steem_per_mvests
   end
 
@@ -10,7 +9,7 @@ class DelegateController < ApplicationController
   end
 
   def witnesses
-    @witnesses = SteemConnection.msp_witnesses
+    @witnesses = SteemConnection.msp_witnesses.sort_by(&:name)
   end
 
   def generate_url
