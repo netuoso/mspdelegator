@@ -16,7 +16,7 @@ gem 'config'
 gem 'steem_api', '= 1.1.0.pre.alpha'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :development do
