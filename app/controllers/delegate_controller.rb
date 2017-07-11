@@ -9,6 +9,10 @@ class DelegateController < ApplicationController
     @delegators = SteemConnection.msp_delegators
   end
 
+  def witnesses
+    @witnesses = SteemConnection.msp_witnesses
+  end
+
   def generate_url
     if permitted_params[:delegator].present? && permitted_params[:sp].present?
       steem_to_vests = calculated_vests(permitted_params[:sp])
@@ -16,7 +20,7 @@ class DelegateController < ApplicationController
       if steem_to_vests == 0.0 || steem_to_vests == Float::INFINITY
         @result = "Error getting current steem_per_mvests conversion rate. Try again later."
       else
-        @result = "https://v2.steemconnect.com/sign/delegateVestingShares?delegator=#{permitted_params[:delegator].gsub(/@/,"")}&delegatee=#{permitted_params[:delegatee].gsub(/@/,"")}&vesting_shares=#{steem_to_vests.round(6)}%20VESTS"
+        @result = "https://v2.steemconnect.com/sign/delegateVestingShares?delegator=#{permitted_params[:delegator]}&delegatee=#{permitted_params[:delegatee]}&vesting_shares=#{steem_to_vests.round(6)}%20VESTS"
       end
     else
       @result = "Ensure you have provided delegator and sp and retry."

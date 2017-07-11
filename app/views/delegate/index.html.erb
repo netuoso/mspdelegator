@@ -28,7 +28,10 @@
         <div class="form-group">
           <label for="delegator" class="col-md-4 control-label">delegator:</label>
           <div class="col-md-8">
-	          <%= text_field_tag :delegator, nil, class: "form-control", id: "delegator", placeholder: "@username", tabindex: 1 %>
+            <div class="input-group">
+              <span class="input-group-addon" id="delegator-addon">@</span>
+              <%= text_field_tag :delegator, nil, class: "form-control", id: "delegator", placeholder: "username", tabindex: 1 %>
+            </div>
           </div>
         </div>
       </div>
@@ -36,7 +39,10 @@
         <div class="form-group">
           <label for="delegatee" class="col-md-4 control-label">delegatee:</label>
           <div class="col-md-8">
-	          <%= select_tag :delegatee, options_for_select(@mspbots, "@minnowsupport"), class: "form-control", id: "delegatee", placeholder: "@minnowsupport", tabindex: 2 %>
+            <div class="input-group">
+              <span class="input-group-addon" id="delegatee-addon">@</span>
+              <%= select_tag :delegatee, options_for_select(@mspbots, "minnowsupport"), class: "form-control", id: "delegatee", placeholder: "minnowsupport", tabindex: 2,  'aria-describedby': "delegatee-addon"%>
+            </div>
           </div>
         </div>
       </div>
@@ -44,7 +50,7 @@
         <div class="form-group">
           <label for="sp" class="col-md-4 control-label">steem power:</label>
           <div class="col-md-8">
-	          <%= text_field_tag :sp, nil, class: "form-control", id: "sp", placeholder: "100", tabindex: 3 %>
+	          <%= number_field_tag :sp, nil, class: "form-control", id: "sp", placeholder: "100", tabindex: 3 %>
           </div>
         </div>
       </div>

@@ -1,2 +1,3 @@
 steem_per_mvests: <%= ENV["STEEM_PER_MVESTS"] || 483.494 %>
-msp_bots: ["@centerlink", "@minnowsupport", "@msp-africa", "@msp-creativebot", "@msp-lovebot", "@msp-shanehug", "@msp-nomad", "@muxxybot"]
+msp_bots: ['centerlink', 'minnowsupport', 'msp-africa', 'msp-creativebot', 'msp-lovebot', 'msp-shanehug', 'msp-nomad', 'muxxybot']
+msp_witnesses: ['aggroed', 'neoxian', 'someguy123', 'followBtcNews', 'netuoso', 'theprophet0', 'ausbitbank', 'teamsteem', 'thecryptodrive']

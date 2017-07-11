@@ -4,6 +4,9 @@ class SteemConnection < SteemApi::SqlBase
     SteemApi::Connection.connection.exec_query(self.canned_query(steem_per_vest))
   end
 
+  def self.msp_witnesses
+  end
+
   private
 
   def self.canned_query(steem_per_vest)
